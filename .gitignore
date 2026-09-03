@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+*.log
+
+# Local personal data (never commit these files)
+profile.json
+applications.json
+attachments/
+company-records/
+browser-profile/
+browser-cache/
+.resume-library/
+.env
+.env.*
+!.env.example
+
+# Local editor, test and temporary files
+.pytest_cache/
+.mypy_cache/
+.venv/
+.electron-cache/
+node_modules/
+release/
+tmp/
+src/
+patch.txt
+*.tmp
