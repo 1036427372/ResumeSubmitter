@@ -157,6 +157,19 @@ company_example_com-a1b2c3d4e5f6.csv
 - **模型名称**：例如供应商提供的通用对话模型名称。
 - **API Key**：只保存在本机 `profile.json`，不会提交到仓库。发布 GitHub 前必须删除本地资料库或确认它位于仓库之外。
 
+例如：
+
+```text
+OpenAI      接口地址：https://api.openai.com/v1/chat/completions
+            模型名称：gpt-4o-mini
+DeepSeek    接口地址：https://api.deepseek.com/v1/chat/completions
+            模型名称：deepseek-chat
+通义千问    接口地址：https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+            模型名称：qwen-plus
+```
+
+填写后点击“保存模型设置”，再点击“测试模型连接”。测试成功后，导入简历、网页字段分类和 AI 对话就会使用该接口。API Key 不要写进源代码、README、`.env` 示例或截图；程序打包时也不会把资料库目录放进安装包。
+
 模型主要用于：
 
 - PDF/DOCX 结构化解析补充；
