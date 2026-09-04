@@ -193,38 +193,6 @@ python_app\dist\投了么\投了么.exe
 
 这是目录模式打包，首次启动比单文件模式更稳定，尤其是 Qt WebEngine。发布给其他电脑时，建议压缩整个 `dist\投了么` 文件夹，而不是只复制 exe。
 
-## GitHub 发布前检查
-
-在上传前执行以下检查：
-
-```powershell
-cd C:\path\to\ResumeSubmitter
-rg -n --hidden --glob '!python_app/build/**' --glob '!python_app/dist/**' --glob '!*\.pyc' "sk-[A-Za-z0-9]|Bearer |apiKey|phone|email|身份证|姓名" .
-```
-
-然后确认：
-
-- 没有 `profile.json`、`applications.json`、`attachments/`、`company-records/`；
-- 没有真实简历、身份证、电话、邮箱、API Key、浏览器 Cookie；
-- 没有把 `RESUME_SUBMITTER_LIBRARY` 指向的资料目录复制进仓库；
-- README 和示例只使用占位符；
-- `build/`、`dist/`、`.venv/` 等构建目录不提交；
-- 运行 `python -m py_compile` 检查源代码。
-
-推荐的 Git 初始化流程：
-
-```powershell
-git init
-git add .
-git status
-git commit -m "Initial Python version of 投了么"
-git branch -M main
-git remote add origin <你的 GitHub 仓库地址>
-git push -u origin main
-```
-
-如果 `git status` 中出现个人资料文件，应立即停止提交，先移出仓库并检查 Git 历史；仅删除工作区文件并不能清除已经提交过的敏感信息。
-
 ## 开发与扩展
 
 项目把可扩展注册表集中在 `profile_schema.py`：
